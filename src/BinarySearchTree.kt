@@ -1,4 +1,11 @@
 class BinarySearchTree(private var root : Node) {
+    //inserting to tree with key
+    fun insert(key : Int){
+        root = insertRec(root,key)
+    }
+
+    //inserting to tree
+    //recursive function
     private fun insertRec(_node: Node?, key: Int): Node {
         var node  = _node
         if (node == null) {
@@ -9,13 +16,14 @@ class BinarySearchTree(private var root : Node) {
         else if (key > node.key) node.right = insertRec(node.right, key)
         return node
     }
-    fun insert(key : Int){
-        root = insertRec(root,key)
-    }
+
+
+    //inorder function
     fun inorder(){
         inorderRec(root)
     }
 
+    //inorder Recursive
     private fun inorderRec(_node: Node?) {
         _node?.let {
             inorderRec(_node.left)
